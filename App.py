@@ -2,9 +2,14 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-model = joblib.load("Heart Project/LR_Heart.pkl")
-scaler = joblib.load("Heart Project/scaler.pkl")
-expected_columns = joblib.load("Heart Project/columns.pkl")
+import os
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model = joblib.load(os.path.join(BASE_DIR, "LR_Heart.pkl"))
+scaler = joblib.load(os.path.join(BASE_DIR, "scaler.pkl"))
+columns = joblib.load(os.path.join(BASE_DIR, "columns.pkl"))
 
 
 st.title("Heart Disease Prediction")
